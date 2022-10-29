@@ -10,7 +10,7 @@ DEPENDENCIES
   rack
 
 RUBY VERSION
-   ruby 3.0.0
+   ruby 3.1.2
 
 BUNDLED WITH
    2.0.1
