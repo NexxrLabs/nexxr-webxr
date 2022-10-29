@@ -1,40 +1,22 @@
-heroku-static-site
-===========
+static-heroku-nodejs
+====================
 
-A simple ruby + rack application for serving a basic static website, suitable for deploying to [Heroku](http://heroku.com).
-Their free 1-dyno plan covers 80% of my projects and Just Works&trade;
+#### [Demo](http://static-heroku-nodejs.herokuapp.com/)
 
-For even simpler free HTML cloud hosting check out [GitHub Pages](http://pages.github.com).
-
-I put static sites on Heroku when I will be adding some simple dynamic stuff later,
-or for redundancy with GH pages (whose uptime isn't perfect).
-
-
-Usage
------
-
-Run the app locally:
-
-1. `gem install bundler`
-2. `bundle install`
-3. `bundle exec rackup`
-4. Visit <http://localhost:9292>
-
-Make something great, then push it to your [Heroku](http://heroku.com) account:
-
-1. `gem install heroku`
-2. `heroku login`
-3. `heroku create --stack=cedar mynewapp`
-4. `heroku git:clone -a mynewapp`
-5. `git add .`
-6. `git commit -am "make it better"`
-7. `git push heroku master`
-
-
-
-License
--------
-
-&copy; copyfree 2012 [Jamie Dubs](http://jamiedubs.com).
-This source code made freely available under an [MIT License](http://www.opensource.org/licenses/mit-license.php).
-
+#### Step-by-step guide:
+1. Start new app and ```git init``` it.
+2. Go to [Heroku](https://www.heroku.com) and sign up there.
+3. On [your apps page](https://dashboard.heroku.com/apps) click on "Create a new app".
+4. Copy Heroku Git URL and add it to your app using ```git remote add heroku your-git-url```.
+5. Create sample **index.html** file.
+6. In order to serve files Heroku needs to start some web server.
+It can be nodejs, ruby or whatever language is supported by the platform.
+For this tutorial I will use built-in nodejs [http](http://nodejs.org/api/http.html) package to create simple static web server.
+You can find sample implementation in **app.js** file.
+Locally server can be started using ```node app.js``` command (you need node.js installed).
+7. Heroku doesn't know anything about your **app.js** file. In order to let it know, you need to create **Procfile** with only one line of code
+```web: node app.js```.
+8. Now you need to create **package.json** file and the easiest way to do it is use ```npm install -y``` command.
+9. Now commit all changes and push it to Heroku using ```git push heroku master```.
+10. Go to your app page on Heroku website and click on little rectangle with arrow near the name of your application.
+It will open your static application. That's it!
